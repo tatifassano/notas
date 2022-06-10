@@ -1,0 +1,21 @@
+@Service
+public class ClienteServiceImpl implements ClienteService {
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    @Override
+    @Transactional
+    public List<Cliente> getAll() {
+        return clienteRepository.findAll();
+    }
+    
+    public interface ClienteService {
+
+    List<Cliente> getAll();
+    Optional<Cliente> getOne(int id);
+    Cliente save(Cliente entity);
+    Cliente update(int id, Cliente entity);
+    boolean delete(int id);
+    int celularesXClientes();
+}
